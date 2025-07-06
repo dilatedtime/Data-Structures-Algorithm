@@ -1,0 +1,33 @@
+    /**
+    * Note: The returned array must be malloced, assume caller calls free().
+    */
+#include<stdio.h>
+#include<stdlib.h>
+    int *twoSum(int *nums, int numsSize, int target, int *returnSize)
+    {
+
+        int k, n = numsSize;
+
+        // int arr[n * (n - 1) / 2];
+        int* arr=(int*) malloc(2*sizeof(int));
+        *returnSize=2;
+
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (target == nums[i] + nums[j])
+                {
+                    arr[0] = i;
+                    arr[1] = j;
+                    //printf("%d %d",i,j);
+                    return arr;
+                }
+            }
+
+        }
+
+        
+         free(arr);
+          return NULL; 
+    }
